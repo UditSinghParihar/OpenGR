@@ -236,16 +236,6 @@ namespace gr {
         const auto& b2 = MatchBaseType::base_3D_[2];
         const auto& b3 = MatchBaseType::base_3D_[3];
 
-        // {
-        //     fprintf(stdout, "Base cloud(P) Coordinates\n");
-        //     fprintf(stderr, "Points:\n");
-        //     std::cout << MatchBaseType::base_3D_[0].pos() << std::endl;
-        //     std::cout << MatchBaseType::base_3D_[1].pos() << std::endl;
-        //     std::cout << MatchBaseType::base_3D_[2].pos() << std::endl;
-        //     std::cout << MatchBaseType::base_3D_[3].pos() << std::endl;        
-        //     fprintf(stderr, "--\n");
-        // }
-
         // Computes distance between pairs.
         const Scalar distance1 = (b0.pos()- b1.pos()).norm();
         const Scalar distance2 = (b2.pos()- b3.pos()).norm();

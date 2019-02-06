@@ -50,13 +50,6 @@ struct TransformVisitor {
     constexpr bool needsGlobalTransformation() const { return false; }
 };
 
-void print_bases(const array<Point3D, 4>& base_points){
-    std::cout << "3D Points in input point cloud P:\n";
-    for(int i=0; i<base_points.size(); ++i){
-        std::cout << "Point:\n" << base_points[i].pos() << std::endl;
-    }
-}
-
 void get_source_points(const vector<Point3D>& cloud, const std::array<int, 4>& indexes){
     std::cout << "Points in source P:\n";
     for(int i=0; i<indexes.size(); ++i){
@@ -91,7 +84,6 @@ typename Point3D::Scalar computeAlignment (
   logger.Log<Utils::Verbose>( "Starting registration" );
   typename Point3D::Scalar score = matcher.ComputeTransformation(P, Q, mat, sampler, visitor);
 
-  print_bases(matcher.base_3D_);
   get_source_points(P, matcher.base_);
   get_target_points(Q, matcher.current_congruent_);
 
