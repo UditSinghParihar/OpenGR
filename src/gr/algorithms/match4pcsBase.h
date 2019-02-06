@@ -6,6 +6,7 @@
 #define OPENGR_MATCH4PCSBASE_H
 
 #include <vector>
+#include <iostream>
 
 #ifdef OpenGR_USE_OPENMP
 #include <omp.h>
@@ -99,6 +100,16 @@ namespace gr {
         static inline Scalar distSegmentToSegment( const VectorType& p1, const VectorType& p2,
                                                    const VectorType& q1, const VectorType& q2,
                                                    Scalar& invariant1, Scalar& invariant2);
+
+    public:
+        using CongruentSetExplorationBase<Traits4pcs, _TransformVisitor, 
+        _PairFilteringFunctor, PairFilteringOptions>::current_congruent_;
+
+        using CongruentSetExplorationBase<Traits4pcs, _TransformVisitor, 
+        _PairFilteringFunctor, PairFilteringOptions>::base_;
+
+        using CongruentSetExplorationBase<Traits4pcs, _TransformVisitor, 
+        _PairFilteringFunctor, PairFilteringOptions>::base_3D_;
     };
 }
 

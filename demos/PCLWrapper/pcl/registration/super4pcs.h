@@ -153,6 +153,14 @@ namespace pcl
       void
       computeTransformation (PointCloudSource &output, const Eigen::Matrix4f& guess);
 
+    public:
+      using pcl::Registration<PointSource, PointTarget>::correspondences_;
+
+      void get_correspondence_info(void){
+        fprintf(stdout, "Size of correspondences is: %ld\n", 
+                (*correspondences_).size());
+      }
+
   };
 }
 

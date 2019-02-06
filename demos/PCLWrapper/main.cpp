@@ -14,6 +14,9 @@
 #include <gr/shared.h>
 #include "../demo-utils.h"
 
+#include <pcl/registration/registration.h>
+#include <iostream>
+
 // Types
 typedef pcl::PointNormal PointNT;
 typedef pcl::PointCloud<PointNT> PointCloudT;
@@ -24,7 +27,7 @@ using namespace gr;
 // Align a rigid object to a scene with clutter and occlusions
 int
 main (int argc, char **argv)
-{
+{ 
   // Point clouds
   PointCloudT::Ptr object (new PointCloudT);
   PointCloudT::Ptr object_aligned (new PointCloudT);
@@ -87,12 +90,15 @@ main (int argc, char **argv)
     pcl::console::print_info ("\n");
     pcl::console::print_info ("t = < %0.3f, %0.3f, %0.3f >\n", transformation (0,3), transformation (1,3), transformation (2,3));
     pcl::console::print_info ("\n");
-
+    
+    align.get_correspondence_info();
+    
     // Show alignment
     pcl::visualization::PCLVisualizer visu("Alignment - Super4PCS");
     visu.addPointCloud (scene, ColorHandlerT (scene, 0.0, 255.0, 0.0), "scene");
     visu.addPointCloud (object_aligned, ColorHandlerT (object_aligned, 0.0, 0.0, 255.0), "object_aligned");
     visu.spin ();
+
   }
   else
   {

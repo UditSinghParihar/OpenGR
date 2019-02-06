@@ -4,7 +4,7 @@ file(GLOB_RECURSE Demo_PCL_headers
                   ${CMAKE_CURRENT_SOURCE_DIR}/*.h
                   ${CMAKE_CURRENT_SOURCE_DIR}/*.hpp)
 
-find_package( PCL 1.8 QUIET COMPONENTS common io search visualization)
+find_package( PCL 1.7 QUIET COMPONENTS common io search visualization)
 
 if( PCL_FOUND )
   message (STATUS "[Demos] PCL found, creating target OpenGR-PCLWrapper")
